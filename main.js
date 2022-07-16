@@ -21,11 +21,13 @@ const elem = document.getElementById("my-calendar");
 const calendar = new FullCalendar.Calendar(elem, {
 	initialView: "timeGridDay",    //initialView:カレンダーの種類
                                     //dayGridMonth:月単位
-                                    //dayGridWeek:週単位
+                                    //ridWeek:週単位
                                     //timeGridDay:日単位
 
 
 	initialDate: "2022-07-16",
+
+    locale: 'ja',   //日本語化    
 	events: events,
 	dateClick: (e)=>{
 		console.log("dateClick:", e);
