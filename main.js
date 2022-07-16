@@ -1,70 +1,66 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var DAY_NAMES = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      locale: 'ja',
-  
-      dayCellContent: function(e) {
-          e.dayNumberText = e.dayNumberText.replace('日', '');
-      },
-      dayHeaderContent: function(arg) {
-          return DAY_NAMES[arg.date.getDay()]
-      },
-  
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: '' // 月とリスト要らないので･･･でも要素のバランス用に
-      },
-      buttonText: {
-        today: '今月',
-        month: '月',
-        list: 'リスト'
-      },
-  
-      displayEventTime: false, // don't show the time column in list view
-      firstDay: 1,    // 月曜始まり
-      showNonCurrentDates: false,
-      height: "auto", // 高さは自動
-  
-      // GoogleカレンダーAPIキー
-      googleCalendarApiKey: 'ここに取得したAPIキー',
-  
-      // イベントの指定
-      events: {
-        googleCalendarId: 'ここにカレンダーID', // Googleカレンダーの指定
-        display: 'background',  // 背景表示
-        color:"#49B9A7",  // 背景の色指定
-        classNames: 'gcal-event', // 独自のclass名を付与（必要なら）
-      },
-  
-      // クリック時の動作（今回は割愛）
-      eventClick: function(arg) {
-        // opens events in a popup window
-        window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
-        arg.jsEvent.preventDefault() // don't navigate in main tab
-      },
-  
-      loading: function(bool) {
-        if(bool) {
-          document.getElementById('loading').style.display = 'block';
-        } else {
-          document.getElementById('loading').style.display = 'none';
-  
-          setTimeout(() => {
-            let els = document.getElementsByClassName('fc-bg-event');
-            for (let i = 0; i <  els.length; i++) {
-              els[i].closest('td').style.color = '#ffffff';
-            }
-          }, 10);  
-        }
-      }
-  
-    });
-  
-    calendar.render();
-  });
+// イベント挿入
+const events = [
+	{
+		id: "a",// ユニークID
+		start: "2022-07-16",// イベント開始日
+		end: "",// イベント終了日
+		title: "節分",// イベントのタイトル
+		description: "悪い鬼を追い払い福を招く",// イベントの詳細
+		backgroundColor: "red",// 背景色
+		borderColor: "red",// 枠線色
+		editable: true// イベント操作の可否
+	},
+	// 省略
+];
+
+
+//カレンダー全体の設定
+// IDを取得する
+const elem = document.getElementById("my-calendar");
+
+// FullCalendarオブジェクト
+const calendar = new FullCalendar.Calendar(elem, {
+    //カレンダーのオプションなど
+
+    //initialView:カレンダーの種類
+	initialView: "timeGridDay",     //dayGridMonth:月単位
+                                    //dayGridWeek:週単位
+                                    //timeGridDay:日単位
+
+    //たぶんページを読み込んだ時、最初に表示される日
+	initialDate: "2022-07-16",
+
+    //日本語化    
+    locale: 'ja',  
+
+
+	events: events,
+	dateClick: (e)=>{
+		console.log("dateClick:", e);
+	},
+	eventClick: (e)=>{
+		console.log("eventClick:", e.event.title);
+	},
+	eventDidMount: (e)=>{// カレンダーに配置された時のイベント
+		tippy(e.el, {// TippyでTooltipを設定する
+			content: e.event.extendedProps.description,
+		});
+	}
+
+
+
+    
+});
+
+
+
+
+
+
+// カレンダーを表示する
+calendar.render();
+
+
 
 
 //End
