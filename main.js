@@ -38,7 +38,17 @@ window.onload = (e)=>{
 	// Calendar
 	const elem = document.getElementById("my-calendar");
 	const calendar = new FullCalendar.Calendar(elem, {
-		initialView: "timeGridDay",
+
+        //カレンダーの種類
+		initialView: "dayGridMonth",	//dayGridMonth:月、日区切り
+		// initialView: "dayGridWeek",		//dayGridWeek:週、日区切り
+		// initialView: "timeGridDay",		//timeGridDay:日、時間区切り
+
+
+
+
+
+
 		initialDate: "2022-02-13",
 		events: events,
 		dateClick: (e)=>{
