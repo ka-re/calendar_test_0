@@ -1,28 +1,24 @@
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8"/>
-    <!-- ページタイトルバー -->
-	<title>カレンダーテスト0</title>
-    <!-- CSS -->
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
+<meta charset='utf-8'>
+<link href='css/fullcalendar/main.css' rel='stylesheet'>
+<script src='js/fullcalendar/main.js'></script>
+<script>
+(function() {
+    'use strict';
+
+    const calendarEl = document.querySelector('.calendar');
+    const calendar = new FullCalendar.Calendar(calendarEl);
+
+    calendar.render();
+}());
+</script>
 </head>
 <body>
-	<!-- Calendar -->
-	<div id="my-calendar"></div>
-	<!-- JavaScript -->
-	<script src="//unpkg.com/@popperjs/core@2" defer></script>
-	<script src="//unpkg.com/tippy.js@6" defer></script>
-	<script src="//cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js" defer></script>
-	
-    <!-- 日本語化ファイル -->
-    <script type='text/javascript' src='js/fullcalendar/ja.js'></script>
-
-
-
-    
-
-    <!-- JS読み込み -->
-    <script src="./main.js" defer></script>
+<div class="calendar"></div>
 </body>
 </html>
