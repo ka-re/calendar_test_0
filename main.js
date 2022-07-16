@@ -3,7 +3,7 @@ console.log("main.js!!");
 const events = [
 	{
 		id: "a",
-		start: "2022-02-02",
+		start: "2022-07-01",
 		end: "",
 		title: "節分",
 		description: "悪い鬼を追い払い福を招く",
@@ -13,7 +13,7 @@ const events = [
 	},
 	{
 		id: "b",
-		start: "2022-02-03",
+		start: "22022-07-02",
 		end: "",
 		title: "立春",
 		description: "二十四節気の一つ",
@@ -23,7 +23,7 @@ const events = [
 	},
 	{
 		id: "c",
-		start: "2022-02-08",
+		start: "2022-07-05",
 		end: "",
 		title: "針供養",
 		description: "古くなった針などを神社に納めて供養する",
@@ -37,6 +37,8 @@ window.onload = (e)=>{
 
 	// Calendar
 	const elem = document.getElementById("my-calendar");
+
+
 	const calendar = new FullCalendar.Calendar(elem, {
 
         //カレンダーの種類
@@ -45,12 +47,13 @@ window.onload = (e)=>{
 		// initialView: "timeGridDay",		//timeGridDay:日、時間区切り
 
 
+		//最初に表示される日
+		initialDate: "2022-07-16",
 
-
-
-
-		initialDate: "2022-02-13",
+		//上で書いたイベント
 		events: events,
+
+
 		dateClick: (e)=>{
 			console.log("dateClick:", e);
 		},
