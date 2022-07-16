@@ -34,7 +34,7 @@ const calendar = new FullCalendar.Calendar(elem, {
 	initialDate: "2022-07-16",
 
     //日本語化    
-    // locale: 'ja',  
+    locale: 'ja',  
 
 
 	events: events,
