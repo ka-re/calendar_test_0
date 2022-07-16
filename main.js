@@ -14,6 +14,9 @@ const events = [
 ];
 
 
+
+
+
 //カレンダー全体の設定
 // IDを取得する
 const elem = document.getElementById("my-calendar");
@@ -23,9 +26,9 @@ const calendar = new FullCalendar.Calendar(elem, {
     //カレンダーのオプションなど
 
     //initialView:カレンダーの種類
-	initialView: "timeGridDay",     //dayGridMonth:月単位
-                                    //dayGridWeek:週単位
-                                    //timeGridDay:日単位
+	initialView: "dayGridMonth",    //dayGridMonth:月単位
+    initialView: "dayGridWeek",     //dayGridWeek:週単位
+    initialView: "timeGridDay",     //timeGridDay:日単位
 
     //たぶんページを読み込んだ時、最初に表示される日
 	initialDate: "2022-07-16",
