@@ -14,11 +14,17 @@ const events = [
 ];
 
 
+//カレンダー全体の設定
 // IDを取得する
 const elem = document.getElementById("my-calendar");
 // FullCalendarオブジェクト
 const calendar = new FullCalendar.Calendar(elem, {
-	initialView: "dayGridMonth",
+	initialView: "timeGridDay",    //initialView:カレンダーの種類
+                                    //dayGridMonth:月単位
+                                    //dayGridWeek:週単位
+                                    //timeGridDay:日単位
+
+
 	initialDate: "2022-07-16",
 	events: events,
 	dateClick: (e)=>{
