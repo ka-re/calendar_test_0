@@ -1,39 +1,57 @@
-// イベント挿入
+console.log("main.js!!");
+
 const events = [
 	{
-		id: "a",// ユニークID
-		start: "2022-07-16",// イベント開始日
-		end: "",// イベント終了日
-		title: "節分",// イベントのタイトル
-		description: "悪い鬼を追い払い福を招く",// イベントの詳細
-		backgroundColor: "red",// 背景色
-		borderColor: "red",// 枠線色
-		editable: true// イベント操作の可否
+		id: "a",
+		start: "2022-02-02",
+		end: "",
+		title: "節分",
+		description: "悪い鬼を追い払い福を招く",
+		backgroundColor: "red",
+		borderColor: "red",
+		editable: true
 	},
-	// 省略
+	{
+		id: "b",
+		start: "2022-02-03",
+		end: "",
+		title: "立春",
+		description: "二十四節気の一つ",
+		backgroundColor: "green",
+		borderColor: "green",
+		editable: true
+	},
+	{
+		id: "c",
+		start: "2022-02-08",
+		end: "",
+		title: "針供養",
+		description: "古くなった針などを神社に納めて供養する",
+		backgroundColor: "blue",
+		borderColor: "blue",
+		editable: true
+	},
 ];
 
+window.onload = (e)=>{
 
-//カレンダー全体の設定
-// IDを取得する
-const elem = document.getElementById("my-calendar");
-// FullCalendarオブジェクト
-const calendar = new FullCalendar.Calendar(elem, {
-	initialView: "dayGridMonth",    //initialView:カレンダーの種類
-
-    
-	initialDate: "2022-07-16",
-	events: events,
-	dateClick: (e)=>{
-		console.log("dateClick:", e);
-	},
-	eventClick: (e)=>{
-		console.log("eventClick:", e.event.title);
-	},
-	eventDidMount: (e)=>{// カレンダーに配置された時のイベント
-		tippy(e.el, {// TippyでTooltipを設定する
-			content: e.event.extendedProps.description,
-		});
-	}
-});
-calendar.render();// カレンダーを表示する
+	// Calendar
+	const elem = document.getElementById("my-calendar");
+	const calendar = new FullCalendar.Calendar(elem, {
+		initialView: "timeGridDay",
+		initialDate: "2022-02-13",
+		events: events,
+		dateClick: (e)=>{
+			console.log("dateClick:", e);
+		},
+		eventClick: (e)=>{
+			console.log("eventClick:", e.event.title);
+		},
+		eventDidMount: (e)=>{
+			tippy(e.el, {// Tippy
+				content: e.event.extendedProps.description,
+			});
+		}
+	});
+	calendar.render();
+}
