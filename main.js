@@ -42,8 +42,8 @@ window.onload = (e)=>{
 	const calendar = new FullCalendar.Calendar(elem, {
 
         //カレンダーの種類
-		initialView: "dayGridMonth",	//dayGridMonth:月、日区切り
-		// initialView: "dayGridWeek",		//dayGridWeek:週、日区切り
+		// initialView: "dayGridMonth",	//dayGridMonth:月、日区切り
+		initialView: "dayGridWeek",		//dayGridWeek:週、日区切り
 		// initialView: "timeGridDay",		//timeGridDay:日、時間区切り
 
 
