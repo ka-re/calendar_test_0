@@ -10,7 +10,7 @@ const events = [
 		borderColor: "red",// 枠線色
 		editable: true// イベント操作の可否
 	},
-	// 省略
+	
 ];
 
 
@@ -33,8 +33,19 @@ const calendar = new FullCalendar.Calendar(elem, {
     //たぶんページを読み込んだ時、最初に表示される日
 	initialDate: "2022-07-16",
 
+
+    //カレンダー上部のタイトルやボタンを設定
+    headerToolbar: {
+        left: false,                //左：なし（なしの場合はfalse）
+        center: "title",            //中央：タイトル
+        right: "today prev,next"    //右：今日へ戻るボタン、先月ボタン、次の月ボタン
+    },    
+
     //日本語化    
     locale: 'ja',  
+
+    //週の初めの日を設定
+    firstDay: 0,        //0：日曜始まり、1：月曜始まり    （デフォルトは日曜始まり）
 
     //上で書いたイベント
 	events: events,
