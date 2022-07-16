@@ -18,7 +18,7 @@ const elem = document.getElementById("my-calendar");
 // FullCalendarオブジェクト
 const calendar = new FullCalendar.Calendar(elem, {
 	initialView: "dayGridMonth",
-	initialDate: "2022-02-13",
+	initialDate: "2022-07-16",
 	events: events,
 	dateClick: (e)=>{
 		console.log("dateClick:", e);
